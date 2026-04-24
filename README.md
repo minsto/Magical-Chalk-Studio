@@ -31,3 +31,4 @@ for export to magicalchalk mods use legacy save
 /magichalk export : Exporte votre structure créée dans votre monde vers la configuration "magicalchalk" pour l’envoyer à votre ami ou à d’autres personnes.
 /magichalk [nom_de_structure] : Vous ajoutez l’objet "magic chalk" dans votre main, puis il suffit de toucher un bloc : votre structure est maintenant construite dans votre monde.
 Pour des plus gros Build utiliser le logiciel
+https://www.dropbox.com/scl/fi/lv8islsavog1n79cucshw/MagicalChalkStudio-Setup-1.0.0-x64.exe?rlkey=c0624cilhk7658vos4c8ljkwr&st=ps155upg&dl=0 version en c# et update
