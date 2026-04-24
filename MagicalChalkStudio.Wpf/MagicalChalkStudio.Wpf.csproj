@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MagicalChalkStudio</RootNamespace>
+    <AssemblyName>MagicalChalkStudio</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\magic_chalk.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="blocks.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Resource Include="Assets\magic_chalk.png" />
+    <Resource Include="Assets\magical_chalk_logo.png" />
+    <Resource Include="Assets\layer_block.png" />
+  </ItemGroup>
+</Project>
+
+

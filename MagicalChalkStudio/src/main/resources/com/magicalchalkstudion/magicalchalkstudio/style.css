@@ -1,0 +1,88 @@
+/* Magical Chalk Studio — thème type outil classique (gris clair, panneaux) */
+
+.root {
+    -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: linear-gradient(to bottom, #d4d4d4, #c8c8c8);
+}
+
+.fusion-app {
+    -fx-background-color: #c0c0c0;
+}
+
+.fusion-toolbar {
+    -fx-background-color: linear-gradient(to bottom, #e8e8e8, #d0d0d0);
+    -fx-border-color: #808080;
+    -fx-border-width: 0 0 1 0;
+}
+
+.fusion-toolbar .label {
+    -fx-text-fill: #202020;
+}
+
+.fusion-toolbar .button {
+    -fx-background-color: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
+    -fx-border-color: #7a7a7a;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 4 10 4 10;
+}
+
+.fusion-toolbar .button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e8e8e8);
+}
+
+.fusion-toolbar .button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #d0d0d0, #b8b8b8);
+}
+
+.fusion-side-panel {
+    -fx-background-color: #d8d8d8;
+    -fx-border-color: #808080;
+    -fx-border-width: 0 0 0 1;
+}
+
+.fusion-side-panel .titled-pane {
+    -fx-text-fill: #101010;
+}
+
+.fusion-side-panel .titled-pane > .title {
+    -fx-background-color: linear-gradient(to bottom, #ececec, #d4d4d4);
+    -fx-border-color: #909090;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 4 8 4 8;
+}
+
+.fusion-side-panel .titled-pane > .content {
+    -fx-background-color: #e4e4e4;
+    -fx-border-color: #909090;
+}
+
+.fusion-status-bar {
+    -fx-background-color: linear-gradient(to bottom, #dcdcdc, #c4c4c4);
+    -fx-border-color: #808080;
+    -fx-border-width: 1 0 0 0;
+}
+
+.fusion-status-bar .label {
+    -fx-text-fill: #1a1a1a;
+}
+
+.fusion-canvas-wrap {
+    -fx-background-color: #a0a0a0;
+    -fx-border-color: #606060;
+    -fx-border-width: 1;
+}
+
+.fusion-canvas-wrap > .viewport {
+    -fx-background-color: #a0a0a0;
+}
+
+.text-field, .check-box, .color-picker {
+    -fx-background-color: #ffffff;
+}
+
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #7a7a7a;
+}

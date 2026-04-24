@@ -1,0 +1,161 @@
+<Window x:Class="MagicalChalkStudio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Magical Chalk Studio"
+        Icon="pack://application:,,,/Assets/magic_chalk.png"
+        Height="920" Width="1520"
+        Background="#C0C0C0"
+        PreviewKeyDown="OnWindowPreviewKeyDown">
+  <DockPanel>
+    <DockPanel DockPanel.Dock="Top" Background="{StaticResource ToolbarBg}">
+      <StackPanel Margin="8">
+        <WrapPanel>
+          <TextBlock Tag="Loc:Lbl_Language" VerticalAlignment="Center" Margin="0,0,6,0"/>
+          <ComboBox x:Name="LangCombo" Width="110" Margin="0,0,12,0" VerticalContentAlignment="Center" SelectionChanged="OnLanguageChanged">
+            <ComboBoxItem Content="Français" Tag="fr"/>
+            <ComboBoxItem Content="English" Tag="en"/>
+          </ComboBox>
+          <Button Tag="Loc:Tool_Select" Margin="0,0,6,6" Padding="8,3" Click="OnToolSelect"/>
+          <Button Tag="Loc:Tool_Line" Margin="0,0,6,6" Padding="8,3" Click="OnToolLine"/>
+          <Button Tag="Loc:Tool_1x1" Margin="0,0,6,6" Padding="8,3" Click="OnTool1x1"/>
+          <Button Tag="Loc:Tool_2x1" Margin="0,0,6,6" Padding="8,3" Click="OnTool2x1"/>
+          <Button Tag="Loc:Tool_2x2" Margin="0,0,6,6" Padding="8,3" Click="OnTool2x2"/>
+          <Button Tag="Loc:Tool_Brush" Margin="0,0,6,6" Padding="8,3" Click="OnToolBrush"/>
+          <Button Tag="Loc:Tool_Eraser" Margin="0,0,6,6" Padding="8,3" Click="OnToolEraser"/>
+          <Button Tag="Loc:Tool_FillRect" Margin="0,0,6,6" Padding="8,3" Click="OnToolFillRect"/>
+          <Button Tag="Loc:Tool_WallRect" Margin="0,0,6,6" Padding="8,3" Click="OnToolWallRect"/>
+          <Button Tag="Loc:Tool_FillCircle" Margin="0,0,6,6" Padding="8,3" Click="OnToolFillCircle"/>
+          <Button Tag="Loc:Tool_WallCircle" Margin="0,0,6,6" Padding="8,3" Click="OnToolWallCircle"/>
+          <Button Tag="Loc:Tool_FillEllipse" Margin="0,0,6,6" Padding="8,3" Click="OnToolFillEllipse"/>
+          <Button Tag="Loc:Tool_WallEllipse" Margin="0,0,6,6" Padding="8,3" Click="OnToolWallEllipse"/>
+          <Button Tag="Loc:Tool_Zone" Margin="0,0,6,6" Padding="8,3" Click="OnToolZone"/>
+          <Separator Margin="8,0" Width="1" Height="22"/>
+          <Button Tag="Loc:Edit_Undo" Margin="0,0,6,6" Padding="8,3" Click="OnUndo"/>
+          <Button Tag="Loc:Edit_Redo" Margin="0,0,6,6" Padding="8,3" Click="OnRedo"/>
+          <Button Tag="Loc:Edit_Copy" Margin="0,0,6,6" Padding="8,3" Click="OnCopy"/>
+          <Button Tag="Loc:Edit_Paste" Margin="0,0,6,6" Padding="8,3" Click="OnPaste"/>
+          <Button Tag="Loc:Edit_Apply" Margin="0,0,6,6" Padding="8,3" Click="OnApplyProps"/>
+          <Button Tag="Loc:Edit_Delete" Margin="0,0,6,6" Padding="8,3" Click="OnDelete"/>
+          <Button Tag="Loc:Edit_NewScene" Margin="0,0,6,6" Padding="8,3" Click="OnNewScene"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,6,0,0">
+          <Button Tag="Loc:Rot_Plus" Margin="0,0,6,6" Padding="8,3" Click="OnRotate90"/>
+          <Button Tag="Loc:Rot_Minus" Margin="0,0,6,6" Padding="8,3" Click="OnRotateMinus90"/>
+          <Button Tag="Loc:Axis_X" Margin="0,0,6,6" Padding="8,3" Click="OnAxisX"/>
+          <Button Tag="Loc:Axis_Y" Margin="0,0,6,6" Padding="8,3" Click="OnAxisY"/>
+          <Button Tag="Loc:Axis_Z" Margin="0,0,6,6" Padding="8,3" Click="OnAxisZ"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,8,0,0">
+          <TextBlock Tag="Loc:Lbl_Scene" VerticalAlignment="Center" Margin="0,0,6,0"/>
+          <TextBox x:Name="SceneNameBox" Width="160" Text="structure"/>
+          <TextBlock Text="X" VerticalAlignment="Center" Margin="12,0,4,0"/>
+          <TextBox x:Name="XField" Width="64"/>
+          <TextBlock Text="Y" VerticalAlignment="Center" Margin="8,0,4,0"/>
+          <TextBox x:Name="YField" Width="64"/>
+          <TextBlock Text="W" VerticalAlignment="Center" Margin="8,0,4,0"/>
+          <TextBox x:Name="WField" Width="64"/>
+          <TextBlock Text="H" VerticalAlignment="Center" Margin="8,0,4,0"/>
+          <TextBox x:Name="HField" Width="64"/>
+          <TextBlock Tag="Loc:Lbl_SizeBlocks" VerticalAlignment="Center" Margin="16,0,6,0"/>
+          <TextBox x:Name="SceneWidthBox" Width="80" Text="100" Tag="LocTip:Tip_SceneW"/>
+          <TextBlock Text="×" VerticalAlignment="Center" Margin="4,0"/>
+          <TextBox x:Name="SceneHeightBox" Width="80" Text="100" Tag="LocTip:Tip_SceneH"/>
+          <Button Tag="Loc:Btn_ApplySize" Margin="8,0,0,0" Padding="8,3" Click="OnApplySize"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,6,0,0">
+          <TextBlock Tag="Loc:Lbl_Block" VerticalAlignment="Center" Margin="0,0,6,0"/>
+          <TextBox x:Name="BlockIdBox" Width="220" Text="minecraft:stone" LostFocus="OnBlockIdLostFocus"/>
+          <TextBlock Tag="Loc:Lbl_State" VerticalAlignment="Center" Margin="12,0,6,0"/>
+          <TextBox x:Name="StateBox" Width="200"/>
+          <TextBlock Tag="Loc:Lbl_Color" VerticalAlignment="Center" Margin="12,0,6,0"/>
+          <ComboBox x:Name="ColorPresetCombo" Width="200" VerticalContentAlignment="Center" SelectionChanged="OnColorPresetChanged"/>
+          <TextBlock Tag="Loc:Lbl_Hex" VerticalAlignment="Center" Margin="8,0,4,0" Foreground="#404040" FontSize="11"/>
+          <TextBox x:Name="ColorHexBox" Width="80" Text="#bfbfbf" TextChanged="OnColorHexTextChanged" Tag="LocTip:Tip_Hex"/>
+          <Button Content="…" MinWidth="28" Margin="4,0,0,0" Padding="6,3" Click="OnPickColor" Tag="LocTip:Tip_ColorPick"/>
+          <CheckBox x:Name="SnapCheck" Tag="Loc:Snap_Grid" IsChecked="True" VerticalAlignment="Center" Margin="12,0,0,0"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,6,0,0">
+          <Button Tag="Loc:File_SaveLegacy" Margin="0,0,6,6" Padding="8,3" Click="OnSaveLegacy"/>
+          <Button Tag="Loc:File_SaveCompact" Margin="0,0,6,6" Padding="8,3" Click="OnSaveCompact"/>
+          <Button Tag="Loc:File_SaveWrapper" Margin="0,0,6,6" Padding="8,3" Click="OnSaveWrapper"/>
+          <Button Tag="Loc:File_LoadLegacy" Margin="0,0,6,6" Padding="8,3" Click="OnLoadLegacy"/>
+        </WrapPanel>
+      </StackPanel>
+    </DockPanel>
+
+    <Border DockPanel.Dock="Bottom" Background="#DCDCDC" BorderBrush="#808080" BorderThickness="0,1,0,0" Padding="8,6">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+          <TextBlock x:Name="StatusText" Text=""/>
+          <TextBlock Tag="Loc:Lbl_Layer" Margin="16,0,4,0"/>
+          <TextBlock x:Name="LayerText" Text="0" Width="28"/>
+          <Button Tag="Loc:Layer_Plus" MinWidth="72" Margin="4,0" Padding="8,2" Click="OnLayerUp"/>
+          <Button Tag="Loc:Layer_Minus" MinWidth="72" Margin="4,0" Padding="8,2" Click="OnLayerDown"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+          <Button Tag="Loc:Zoom_Out" Width="56" Margin="0,0,6,0" Click="OnZoomOut"/>
+          <Slider x:Name="ZoomSlider" Width="200" Minimum="0.01" Maximum="1" Value="1" TickFrequency="0.05"
+                  ValueChanged="OnZoomSliderValueChanged"/>
+          <Button Tag="Loc:Zoom_In" Width="56" Margin="6,0,6,0" Click="OnZoomIn"/>
+          <TextBlock x:Name="ZoomLabel" Text="Zoom : 100%" VerticalAlignment="Center" MinWidth="88"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="300"/>
+      </Grid.ColumnDefinitions>
+      <Border Grid.Column="0" Background="#A0A0A0" BorderBrush="#606060" BorderThickness="1" Margin="0,0,4,0">
+        <ScrollViewer x:Name="EditorScroll"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      ScrollChanged="OnScrollChanged"
+                      Background="#A0A0A0"
+                      PreviewMouseWheel="OnEditorScrollWheel">
+          <Border x:Name="WorldHost" Background="Transparent">
+            <Border.LayoutTransform>
+              <ScaleTransform x:Name="WorldScale" ScaleX="1" ScaleY="1"/>
+            </Border.LayoutTransform>
+            <Canvas x:Name="WorldCanvas" Background="#2B2B2B" Width="5000" Height="5000"
+                    MouseLeftButtonDown="OnWorldMouseDown"
+                    MouseMove="OnWorldMouseMove"
+                    MouseLeftButtonUp="OnWorldMouseUp"
+                    LostMouseCapture="OnWorldLostMouseCapture">
+              <Canvas x:Name="GridLinesCanvas" Width="5000" Height="5000" IsHitTestVisible="False"/>
+              <Canvas x:Name="PreviewHost" Width="5000" Height="5000" IsHitTestVisible="False" Background="Transparent">
+                <Rectangle x:Name="DragPreviewRect" Visibility="Collapsed" Stroke="#66FFFF" Fill="#33FFFFFF" StrokeThickness="1"/>
+                <Line x:Name="DragPreviewLine" Visibility="Collapsed" Stroke="#88EEFF" StrokeThickness="2.5" SnapsToDevicePixels="True"/>
+                <Ellipse x:Name="DragPreviewEllipse" Visibility="Collapsed" Stroke="#88EEFF" Fill="#28FFFFFF" StrokeThickness="2"/>
+              </Canvas>
+            </Canvas>
+          </Border>
+        </ScrollViewer>
+      </Border>
+      <DockPanel Grid.Column="1" Background="{StaticResource PanelBg}">
+        <GroupBox Tag="Loc:Grp_Layers" DockPanel.Dock="Top" Margin="8" Padding="8">
+          <StackPanel>
+            <TextBlock x:Name="LayerSummaryText" TextWrapping="Wrap" Text=""/>
+            <TextBlock Tag="Loc:Layer_Shortcuts" TextWrapping="Wrap" Margin="0,6,0,0"/>
+            <TextBlock Tag="Loc:Layer_HintHelp" TextWrapping="Wrap" Margin="0,6,0,0" Foreground="#404040" FontSize="12"/>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+              <Button Tag="Loc:Layer_PlusSide" MinWidth="100" Margin="0,0,8,0" Padding="10,6" Click="OnLayerUp"/>
+              <Button Tag="Loc:Layer_MinusSide" MinWidth="100" Padding="10,6" Click="OnLayerDown"/>
+            </StackPanel>
+          </StackPanel>
+        </GroupBox>
+        <GroupBox Tag="Loc:Grp_Palette" Margin="8" Padding="8">
+          <DockPanel>
+            <TextBox x:Name="PaletteSearch" DockPanel.Dock="Top" Margin="0,0,0,8" TextChanged="OnPaletteSearch"/>
+            <ListBox x:Name="PaletteList" SelectionChanged="OnPaletteSelection"/>
+          </DockPanel>
+        </GroupBox>
+      </DockPanel>
+    </Grid>
+  </DockPanel>
+</Window>

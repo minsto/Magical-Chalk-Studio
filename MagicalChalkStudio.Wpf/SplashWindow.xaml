@@ -1,0 +1,17 @@
+<Window x:Class="MagicalChalkStudio.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Magical Chalk Studio"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        Width="960"
+        Height="640"
+        Background="Black">
+  <Border Background="Black">
+    <Image Source="pack://application:,,,/Assets/magical_chalk_logo.png"
+           Stretch="Uniform"
+           Margin="20"/>
+  </Border>
+</Window>
